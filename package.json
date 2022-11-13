@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
