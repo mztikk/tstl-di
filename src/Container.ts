@@ -1,5 +1,5 @@
 export class Container {
-    private _providers: Map<string, () => any> = new Map();
+    private _providers: Map<string, () => unknown> = new Map();
 
     public resolve(token: string) {
         const matchedProvider = this._providers.get(token)
@@ -11,15 +11,15 @@ export class Container {
         }
     }
 
-    public instance(token: string, obj: any) {
+    public instance(token: string, obj: unknown) {
         this._providers.set(token, () => obj)
     }
 
-    public singleton(token: string, target: { new(): any }) {
+    public singleton(token: string, target: { new(): unknown }) {
         this.instance(token, new target())
     }
 
-    public register(token: string, target: { new(): any }) {
+    public register(token: string, target: { new(): unknown }) {
         this._providers.set(token, () => new target())
     }
 }
